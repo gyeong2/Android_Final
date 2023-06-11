@@ -53,21 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*public boolean onOptionItemSelected(MenuItem item) {
+    public void onMemoClicked(int itemIndex) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("삭제");
+        builder.setTitle("확인");
         builder.setMessage("삭제하시겠습니까?");
         builder.setPositiveButton("예",new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int index) {
-                Iterator<String> iterator = arrayList.iterator();
-                while (iterator.hasNext())
-                    iterator.remove();
+                arrayList.remove(itemIndex);
                 recyclerView1Adapter.notifyDataSetChanged();
-                //return true;
             }
         });
-    }*/
+        builder.setNegativeButton("아니오", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }
 
 

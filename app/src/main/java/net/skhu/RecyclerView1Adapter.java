@@ -13,12 +13,20 @@ import java.util.ArrayList;
 
 public class RecyclerView1Adapter extends RecyclerView.Adapter<RecyclerView1Adapter.ViewHolder> {
 
-    static class ViewHolder extends RecyclerView.ViewHolder  {
+    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textView;
 
         public ViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.textView);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view){
+            int index = super.getAdapterPosition();
+            MainActivity activity = (MainActivity) textView.getContext();
+            activity.onMemoClicked(index);
         }
     }
 
